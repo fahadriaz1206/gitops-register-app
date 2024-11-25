@@ -18,14 +18,17 @@ pipeline {
         }
 
         stage("Update the Deployment Tags") {
-            steps {
-                sh """
-                   cat deployment.yaml
-                   sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
-                   cat deployment.yaml
-                """
-            }
+                steps {
+                    sh """
+                    echo "Before Update:"
+                    cat deployment.yaml
+                    sed -i 's|231791477922.dkr.ecr.ap-northeast-1.amazonaws.com/register-app-pipeline:.*|231791477922.dkr.ecr.ap-northeast-1.amazonaws.com/register-app-pipeline:${IMAGE_TAG}|g' deployment.yaml
+                    echo "After Update:"
+                    cat deployment.yaml
+                    """
+                }
         }
+
 
         stage("Push the changed deployment file to Git") {
             steps {
