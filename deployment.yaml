@@ -12,9 +12,11 @@ spec:
       labels:
         app: register-app
     spec:
+      imagePullSecrets:
+        - name: ecr-login
       containers:
         - name: register-app
-          image: fahad1206/register-app-pipeline:1.0.0-9
+          image: 231791477922.dkr.ecr.ap-northeast-1.amazonaws.com/register-app-pipeline:1.0.0-19
           resources:
             limits:
               memory: "256Mi"
