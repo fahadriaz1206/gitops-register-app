@@ -16,7 +16,7 @@ spec:
         - name: ecr-login
       containers:
         - name: register-app
-          image: 231791477922.dkr.ecr.ap-northeast-1.amazonaws.com/register-app-pipeline:1.0.0-22
+          image: 231791477922.dkr.ecr.ap-northeast-1.amazonaws.com/register-app-pipeline:1.0.0-23
           imagePullPolicy: Always
           resources:
             limits:
